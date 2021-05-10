@@ -5,8 +5,6 @@ import * as vscode from 'vscode';
 // this method is called when your extension is activated
 // your extension is activated the very first time the command is executed
 export function activate(context: vscode.ExtensionContext) {
-	console.log('Congratulations, your extension "vscode-npl" is now active!');
-
 	// The command has been defined in the package.json file
 	// Now provide the implementation of the command with registerCommand
 	// The commandId parameter must match the command field in package.json
@@ -50,8 +48,8 @@ export function activate(context: vscode.ExtensionContext) {
 				vscode.window.showInformationMessage(`Successfully set breakpoint at: ${linenumber}:${filename}`);
 				vscode.env.openExternal(vscode.Uri.parse(`${baseUrl}debugger`));
 			});
-			var onTimeOut = function () {
-				vscode.window.showInformationMessage(`Please start your NPL/Paracraft process first \nand start NPL Code Wiki at: \n http://127.0.0.1:8099/ \nDo you want to see help page?`, ...['ok', 'cancel']).then(selection => {
+			var onTimeOut = function (result: any) {
+				vscode.window.showInformationMessage(`Please start your NPL/Paracraft process first and start NPL Code Wiki at: http://127.0.0.1:8099/ \nDo you want to see help page?`, ...['ok', 'cancel']).then(selection => {
 					if (selection == "ok") {
 						vscode.env.openExternal(vscode.Uri.parse('https://github.com/LiXizhi/NPLRuntime/wiki/NPLCodeWiki'));
 					}
@@ -59,6 +57,7 @@ export function activate(context: vscode.ExtensionContext) {
 			}
 			req.on('requestTimeout', onTimeOut);
 			req.on('responseTimeout', onTimeOut);
+			req.on('error', onTimeOut);
 		}
 	});
 

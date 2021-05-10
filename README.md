@@ -11,8 +11,19 @@ Contact author: lixizhi@yeah.net
 
 
 ## Build & Deploy
-
+```bash
+git clone https://github.com/tatfook/vscode-npl.git
+cd vscode-npl
+npm install
 ```
+
+### Publish the extension
+Refer to [this](https://code.visualstudio.com/docs/extensions/publish-extension)
+We need to register a token and create a publisher called `tatfook`.
+```
+npm install -g vsce
+vsce package
+vsce publish minor
 ```
 
 ### For more information

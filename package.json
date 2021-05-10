@@ -1,14 +1,27 @@
 {
-  "name": "vscode-npl",
-  "displayName": "vscode-npl",
-  "description": "NPL remote debugging",
-  "version": "0.0.1",
+  "name": "NPLRemoteDebugger",
+  "displayName": "NPL Remote Debugger",
+  "publisher": "tatfook",
+  "description": "NPL(Neural Parallel Language) Remote Debugger for VS Code.",
+  "author": {
+    "name": "Tatfook Co.",
+    "email": "lixizhi@yeah.net"
+  },
+  "license": "MIT",
+  "version": "1.0.1",
+  "categories": [
+    "Debuggers"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/tatfook/vscode-npl.git"
+  },
+  "bugs": {
+    "url": "https://github.com/tatfook/vscode-npl/issues"
+  },
   "engines": {
     "vscode": "^1.56.0"
   },
-  "categories": [
-    "Other"
-  ],
   "activationEvents": [
     "onCommand:vscode-npl.npl",
     "onLanguage:lua",
