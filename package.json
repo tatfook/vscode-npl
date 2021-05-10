@@ -1,0 +1,62 @@
+{
+  "name": "vscode-npl",
+  "displayName": "vscode-npl",
+  "description": "NPL remote debugging",
+  "version": "0.0.1",
+  "engines": {
+    "vscode": "^1.56.0"
+  },
+  "categories": [
+    "Other"
+  ],
+  "activationEvents": [
+    "onCommand:vscode-npl.npl",
+    "onLanguage:lua",
+    "onStartupFinished"
+  ],
+  "main": "./out/extension.js",
+  "contributes": {
+    "commands": [
+      {
+        "command": "vscode-npl.npl",
+        "title": "npl"
+      },
+      {
+        "command": "vscode-npl.setBreakPoint",
+        "title": "NPL Set Breakpoint Here"
+      }
+    ],
+    "menus": {
+      "editor/context": [
+        {
+          "command": "vscode-npl.setBreakPoint",
+          "group": "z_commands"
+        }
+      ]
+    }
+  },
+  "scripts": {
+    "vscode:prepublish": "npm run compile",
+    "compile": "tsc -p ./",
+    "watch": "tsc -watch -p ./",
+    "pretest": "npm run compile && npm run lint",
+    "lint": "eslint src --ext ts",
+    "test": "node ./out/test/runTest.js"
+  },
+  "devDependencies": {
+    "@types/glob": "^7.1.3",
+    "@types/mocha": "^8.0.4",
+    "@types/node": "^12.11.7",
+    "@types/vscode": "^1.56.0",
+    "@typescript-eslint/eslint-plugin": "^4.14.1",
+    "@typescript-eslint/parser": "^4.14.1",
+    "eslint": "^7.19.0",
+    "glob": "^7.1.6",
+    "mocha": "^8.2.1",
+    "typescript": "^4.1.3",
+    "vscode-test": "^1.5.0"
+  },
+  "dependencies": {
+    "node-rest-client": "^3.1.0"
+  }
+}
